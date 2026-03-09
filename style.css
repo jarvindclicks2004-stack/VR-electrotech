@@ -1,0 +1,896 @@
+/* ===== Base reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ===== Color system (Cream + Deep Olive Green) ===== */
+:root {
+  /* Backgrounds - Light Cream */
+  --bg: #F6F0D7;
+  --bg-soft: #F0E8CC;
+  --panel-light: #F6F0D7;
+  --panel-soft: #EDE5CC;
+
+  /* Cards - Deep Olive Green */
+  --card: #455432;
+  --card-soft: #556643;
+
+  /* Accent */
+  --accent: #9CAB84;
+  --accent-soft: rgba(156, 171, 132, 0.16);
+
+  /* Text */
+  --text-main: #3a4942;
+  --text-soft: #556643;
+  --text-muted: #9CAB84;
+  --text-dark: #2a3a2f;
+  --text-strong: #1a2a1f;
+
+  /* Borders & shapes */
+  --border-subtle: rgba(69, 84, 50, 0.12);
+  --radius-lg: 24px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 22px 60px rgba(69, 84, 50, 0.15);
+  --container: 1120px;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  background: linear-gradient(
+    180deg,
+    #F6F0D7 0%,
+    #F0E8CC 55%,
+    #EDE5CC 100%
+  );
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+
+/* ===== Layout ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    to bottom,
+    rgba(246, 240, 215, 0.96),
+    rgba(246, 240, 215, 0.8),
+    transparent
+  );
+  border-bottom: 1px solid rgba(69, 84, 50, 0.2);
+}
+
+
+nav {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+nav > a {
+  font-family: "Georgia", "Times New Roman", serif;
+  letter-spacing: 0.18em;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  font-size: 0.9rem;
+}
+
+
+nav ul li {
+  position: relative;
+}
+
+
+nav ul a {
+  color: #556643;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.78rem;
+}
+
+
+nav ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #556643, #9CAB84);
+  transition: width 0.28s ease;
+}
+
+
+nav ul a:hover::after {
+  width: 100%;
+}
+
+
+nav ul a.nav-active {
+  color: #2A3F20;
+}
+
+
+nav ul a.nav-active::after {
+  width: 100%;
+}
+
+
+/* ===== Nav dropdown (Services & Products) ===== */
+.nav-has-dropdown {
+  position: relative;
+  z-index: 101;
+  padding-bottom: 8px;
+}
+
+
+/* single, final definition of dropdown base styles */
+.nav-has-dropdown > .nav-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #F6F0D7;
+  border-radius: 10px;
+  box-shadow: 0 14px 35px rgba(69, 84, 50, 0.15);
+  padding: 10px 0;
+  list-style: none;
+  min-width: 220px;
+  border: 1px solid rgba(69, 84, 50, 0.15);
+  z-index: 10000;
+  margin-top: 8px;
+  overflow: visible;
+
+  /* hover/visibility handling */
+  display: block;        /* always in flow; we only fade it */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+
+.nav-has-dropdown:hover > .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+.nav-dropdown li {
+  padding: 0;
+}
+
+
+.nav-dropdown a {
+  display: block;
+  padding: 10px 18px;
+  color: #2a3a2f;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+
+.nav-dropdown a::after {
+  content: none !important;
+}
+
+
+.nav-dropdown a:hover {
+  background: #F0E8CC;
+  color: #2A3F20;
+}
+
+
+main {
+  max-width: var(--container);
+  margin: 32px auto 72px;
+  padding: 0 20px 40px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+
+section {
+  margin-bottom: 72px;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+
+/* ===== Hero (olive green block on cream) ===== */
+#hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  background: linear-gradient(135deg, #455432 0%, #2A3F20 100%);
+  border-radius: var(--radius-lg);
+  padding: 40px 34px;
+  color: #F6F0D7;
+  box-shadow: var(--shadow-soft);
+}
+
+
+.hero-text-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #9CAB84;
+  margin-bottom: 18px;
+}
+
+
+h1 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(2.7rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+  color: #F6F0D7;
+}
+
+
+.hero-subtitle {
+  font-size: 0.96rem;
+  color: #EDE5CC;
+  max-width: 34rem;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+
+/* Hero media card */
+.hero-media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, #556643 0%, #3A4F30 100%);
+  border: 1px solid rgba(246, 240, 215, 0.15);
+  box-shadow: var(--shadow-soft);
+  min-height: 260px;
+  display: flex;
+  align-items: flex-end;
+  padding: 18px 18px 20px;
+}
+
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.88;
+}
+
+
+/* ===== Headings & text ===== */
+h2 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  color: #2a3a2f;
+}
+
+
+h3 {
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #2a3a2f;
+}
+
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-strong);
+}
+
+
+/* Links (Gmail, nav, etc.) with underline animation */
+a {
+  color: #3A4F30;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+
+
+a:hover {
+  color: #455432;
+}
+
+
+a:hover::after {
+  width: 100%;
+}
+
+
+/* ===== Buttons with micro-interactions ===== */
+.btn-primary,
+.btn-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 26px;
+  border-radius: var(--radius-pill);
+  font-size: 0.86rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    color 0.22s ease;
+  overflow: hidden;
+}
+
+
+/* Glow / lift on hover */
+.btn-primary {
+  background: linear-gradient(135deg, #455432, #2A3F20);
+  color: #F6F0D7;
+  box-shadow: 0 16px 40px rgba(69, 84, 50, 0.25);
+}
+
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 0 0, rgba(246, 240, 215, 0.2), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 22px 60px rgba(69, 84, 50, 0.3);
+}
+
+
+.btn-primary:hover::after {
+  opacity: 1;
+}
+
+
+/* Outline button with soft fill on hover */
+.btn-outline {
+  background: rgba(156, 171, 132, 0.5);
+  color: #2a3a2f;
+  border-color: rgba(69, 84, 50, 0.4);
+  box-shadow: 0 0 0 0 rgba(69, 84, 50, 0.05);
+}
+
+
+.btn-outline:hover {
+  background: rgba(156, 171, 132, 0.8);
+  border-color: rgba(69, 84, 50, 0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(69, 84, 50, 0.15);
+}
+
+
+/* ===== Services grid (olive green cards) ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+
+.service-card {
+  background: linear-gradient(135deg, #455432 0%, #3A4F30 100%);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(69, 84, 50, 0.3);
+  padding: 18px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  color: #F6F0D7;
+  box-shadow: 0 18px 40px rgba(69, 84, 50, 0.15);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(circle at top left, rgba(246, 240, 215, 0.1), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+
+/* card hover motion */
+.service-card:hover {
+  transform: translate3d(0, -3px, 0) scale(1.02);
+  box-shadow: 0 26px 60px rgba(69, 84, 50, 0.25);
+  border-color: rgba(156, 171, 132, 0.4);
+}
+
+
+/* brighter service headings & tags */
+.service-card h3 {
+  color: #F6F0D7;
+}
+
+
+.service-card p {
+  font-size: 0.88rem;
+  color: #F6F0D7;
+}
+
+
+.service-card ul {
+  margin-top: 6px;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: #F6F0D7;
+}
+
+
+.service-card li {
+  margin-bottom: 4px;
+}
+
+
+.service-tagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C5D89D;
+}
+
+
+/* ===== Dark content blocks for about / contact panels ===== */
+.content-block {
+  background: linear-gradient(135deg, #455432 0%, #2A3F20 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(69, 84, 50, 0.3);
+  padding: 26px 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 26px;
+  color: #F6F0D7;
+  box-shadow: var(--shadow-soft);
+}
+
+
+.content-block p,
+.content-block li {
+  color: #F6F0D7;
+}
+
+
+/* ===== Section header utility ===== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 18px;
+}
+
+
+.section-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+
+/* ===== Forms ===== */
+form {
+  display: grid;
+  gap: 16px;
+  max-width: 520px;
+  margin-top: 12px;
+}
+
+
+/* OPTIONAL: if your product page has a wrapper, keep it below header */
+.product-page,
+.product-wrapper,
+.product-section {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+
+/* Make dropdown forgiving (stays longer) */
+.nav-has-dropdown > .nav-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  display: block; /* override display:none */
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+
+.nav-has-dropdown:hover > .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ===== Form label visibility fix (ONLY labels) ===== */
+label {
+  color: #3a4942;
+}
+
+
+/* ===== Contact page text visibility — FINAL FIX (TEXT ONLY) ===== */
+
+/* Form labels */
+label {
+  color: #2a3a2f;
+}
+
+
+/* Right-side contact text (phone, email, location) */
+.content-block p,
+.content-block li,
+.content-block a {
+  color: #2a3a2f;
+}
+
+
+/* Section headings like SEND A MESSAGE / DIRECT CONTACT */
+section h2,
+section h3 {
+  color: #1f2f25;
+}
+
+
+/* ===== Contact form alignment fix ===== */
+form {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 16px 18px;
+  align-items: center;
+}
+
+
+/* Labels */
+form label {
+  justify-self: start;
+}
+
+
+/* Inputs, selects, textarea */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  justify-self: stretch;
+}
+
+
+/* Make textarea span full width */
+form textarea {
+  grid-column: 2 / -1;
+  min-height: 120px;
+}
+
+
+/* Project Details label aligns with textarea top */
+form label[for*="message"],
+form label[for*="project"] {
+  align-self: start;
+  margin-top: 6px;
+}
+
+
+/* Button spans full width */
+form button,
+form .btn-primary {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+}
+
+
+/* ===== FINAL dropdown stability override ===== */
+
+/* Ensure dropdown can receive hover even when parent loses hover briefly */
+.nav-has-dropdown > .nav-dropdown {
+  pointer-events: auto !important;
+}
+
+
+/* Keep dropdown open when either parent OR dropdown is hovered */
+.nav-has-dropdown:hover > .nav-dropdown,
+.nav-has-dropdown > .nav-dropdown:hover {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+
+/* ===== ABOUT section text contrast fix ===== */
+#about,
+#about h1,
+#about h2,
+#about h3 {
+  color: #F6F0D7;
+}
+
+
+#about p {
+  color: #EDE5CC;
+}
+
+
+/* =========================================================
+   PRODUCTS – 4-COLUMN INTERACTIVE GRID
+========================================================= */
+
+/* Category block wrapper on products.html */
+.product-section {
+  margin-bottom: 56px;
+}
+
+/* Category heading + short text */
+.product-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.product-section-header h2 {
+  margin-bottom: 4px;
+}
+
+/* 4-column grid desktop, responsive below */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+/* Product card tile */
+.product-card {
+  background: #F6F0D7;
+  border-radius: 18px;
+  border: 1px solid rgba(69, 84, 50, 0.18);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(69, 84, 50, 0.14);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    translate 0.22s ease;
+}
+
+/* Hover interaction: lift + slight scale */
+.product-card:hover {
+  transform: scale(1.02);
+  translate: 0 -4px;
+  box-shadow: 0 18px 40px rgba(69, 84, 50, 0.26);
+  border-color: rgba(156, 171, 132, 0.6);
+}
+
+/* Image area at top of card */
+.product-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #C5D89D;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Slight zoom on hover */
+.product-card:hover .product-image img {
+  transform: scale(1.06);
+}
+
+/* Card body (title + description + button) */
+.product-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-title {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #2a3a2f;
+}
+
+.product-desc {
+  font-size: 0.88rem;
+  color: #3a4942;
+}
+
+/* Get quote button styled as primary CTA */
+.product-body .product-whatsapp-btn {
+  margin-top: 8px;
+  align-self: flex-start;
+  padding: 8px 18px;
+  font-size: 0.75rem;
+}
+
+/* Responsive: 2 columns on tablet, 1 on mobile */
+@media (max-width: 960px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   QUOTE MODALS (OVERRIDES ONLY – DO NOT TOUCH OTHER FORMS)
+========================================================= */
+
+/* Modal backdrop */
+.quote-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 63, 32, 0.55);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* Modal box */
+.quote-modal-content {
+  background: var(--panel-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  padding: 22px 22px 24px;
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+}
+
+/* Modal heading */
+.quote-modal-content h3 {
+  margin-bottom: 14px;
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+}
+
+/* Close button */
+.quote-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-soft);
+}
+
+.quote-close:hover {
+  color: var(--text-strong);
+}
+
+/* IMPORTANT: override global form grid INSIDE modals */
+.quote-modal-content form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+/* Labels */
+.quote-modal-content label {
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Inputs */
+.quote-modal-content input,
+.quote-modal-content select,
+.quote-modal-content textarea {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  font-size: 0.85rem;
+  background: #fff;
+}
+
+/* Textarea */
+.quote-modal-content textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Submit button full width */
+.quote-modal-content button {
+  width: 100%;
+  margin-top: 8px;
+}
