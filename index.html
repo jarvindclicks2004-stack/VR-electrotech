@@ -9,9 +9,12 @@
   <script defer src="/_vercel/insights/script.js"></script>
 <body>
   <header>
-    <nav>
-  <a href="index.html">VR ELECTROTECH</a>
-  <ul>
+     <nav>
+  <a href="/">VR ELECTROTECH</a>
+
+  <button class="menu-toggle">☰</button>
+
+  <ul> 
     <li><a href="index.html#hero">Home</a></li>
 
     <!-- Services dropdown -->
@@ -175,5 +178,13 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+const toggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector("nav ul");
+
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
+</script>
 </body>
 </html>
