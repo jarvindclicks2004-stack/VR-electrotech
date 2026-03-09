@@ -1398,4 +1398,21 @@ main > section:first-child {
   }
 
 }
+/* ===== FORCE MOBILE MENU BEHAVIOR ===== */
 
+@media (max-width:768px){
+
+  /* hide menu by default */
+  nav ul{
+    display:none !important;
+  }
+
+  /* show when hamburger is clicked */
+  nav ul.active{
+    display:flex !important;
+    flex-direction:column;
+    gap:10px;
+    width:100%;
+  }
+
+}
