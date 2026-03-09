@@ -1356,10 +1356,11 @@ main > section:first-child {
 
   .menu-toggle{
     display:block;
-    font-size:22px;
+    font-size:24px;
     background:none;
     border:none;
     cursor:pointer;
+    line-height:1;
     margin-left:auto;
   }
 
@@ -1381,5 +1382,20 @@ main > section:first-child {
 
 }
 
+/* ===== MOBILE MENU FIX ===== */
 
+@media (max-width:768px){
+
+  nav ul{
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    width:100%;
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+}
 
