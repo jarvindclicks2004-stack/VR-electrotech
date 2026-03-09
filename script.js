@@ -182,3 +182,47 @@ document
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
     simpleQuoteModal.style.display = "none";
   });
+
+
+// ========= Simple Product Form Submit =========
+document
+  .getElementById("simpleQuoteForm")
+  ?.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const quantity = document.getElementById("simpleQuantity").value.trim();
+    const location = document.getElementById("simpleLocation").value.trim();
+
+    if (!quantity || !location) {
+      alert("Please fill in required fields before sending.");
+      return;
+    }
+
+    const message =
+      `Hello VR Electrotech,%0A%0A` +
+      `Product Enquiry%0A` +
+      `Product: ${document.getElementById("simpleProductName").value}%0A` +
+      `Quantity / Capacity: ${quantity}%0A` +
+      `Location: ${location}%0A` +
+      `Usage: ${document.getElementById("simpleUsage").value || "Not specified"}%0A` +
+      `Notes: ${document.getElementById("simpleNotes").value || "None"}`;
+
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+    simpleQuoteModal.style.display = "none";
+  });
+
+/* ===== Mobile nav dropdown toggle (ADD THIS) ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdownParents = document.querySelectorAll(".nav-has-dropdown > a");
+
+  dropdownParents.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault(); // first tap opens/closes dropdown instead of navigating
+        const li = link.parentElement;
+        li.classList.toggle("open");
+      }
+    });
+  });
+});
+
