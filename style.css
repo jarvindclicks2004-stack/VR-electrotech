@@ -1236,3 +1236,43 @@ main > section:first-child {
   }
 
 }
+
+
+/* ===== FINAL MOBILE FIX ===== */
+
+@media (max-width:768px){
+
+  header{
+    position:relative;
+  }
+
+  nav{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:10px 14px;
+    gap:4px;
+  }
+
+  nav ul{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:flex-start;
+  }
+
+  nav ul li{
+    flex:0 0 auto;
+  }
+
+  nav ul a{
+    font-size:0.75rem;
+  }
+
+  main{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+}
