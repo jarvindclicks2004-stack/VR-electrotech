@@ -895,59 +895,94 @@ form .btn-primary {
   margin-top: 8px;
 }
 
-/* ===== Mobile Responsive Styles ===== */
+/* ===== Mobile / Tablet Responsive Enhancements ===== */
+@media (max-width: 900px) {
 
-@media (max-width: 768px) {
-
-  /* Navigation */
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
+  /* Container spacing */
+  main {
+    margin: 20px auto 48px;
+    padding: 0 16px 32px;
   }
 
-  nav li {
-    margin-bottom: 10px;
+  section {
+    margin-bottom: 48px;
+    padding: 0; /* you already add padding below for <=768px */
   }
 
-  /* Hero Section */
+  /* Hero: stack text + image */
   #hero {
     grid-template-columns: 1fr;
-    text-align: center;
+    padding: 26px 20px;
+    text-align: left; /* or center if you prefer */
+    gap: 22px;
   }
 
-  .hero-media img {
-    width: 100%;
-    height: auto;
+  .hero-cta-row {
+    justify-content: flex-start;
   }
 
-  /* Services grid */
+  /* Services: 2 columns on small tablets */
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  /* Content blocks */
+  /* Content blocks: stack columns */
   .content-block {
     grid-template-columns: 1fr;
   }
 
-  /* Section padding */
-  section {
-    padding: 40px 20px;
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  /* Headings */
+  /* Contact form: single column */
+  form {
+    grid-template-columns: 1fr;
+  }
+  form textarea {
+    grid-column: 1 / -1;
+  }
+  form button,
+  form .btn-primary {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+
+  /* Nav: stack logo and links, center them */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  nav ul {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  nav ul li {
+    margin-bottom: 0;
+  }
+
+  /* Hero headings smaller on very small phones */
   h1 {
     font-size: 1.8rem;
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
-}
+  /* Services: 1 column on phones */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 
-/* Make images responsive */
-img {
-  max-width: 100%;
-  height: auto;
+  /* Product grid (you already do this for 640px, keep it) */
+  /* .products-grid { grid-template-columns: 1fr; } */
 }
