@@ -213,8 +213,8 @@ nav ul a.nav-active::after {
 
 main {
   max-width: var(--container);
-  margin: 32px auto 72px;
-  padding: 0 20px 40px;
+  margin: 0 auto 72px;
+  padding: 8 20px 40px;
   position: relative;
   z-index: 1;
   overflow: visible;
@@ -1149,7 +1149,7 @@ form .btn-primary {
   }
 
   main {
-    margin: 16px auto 56px;  /* less gap above hero */
+    margin: 0 auto 56px;  /* less gap above hero */
   }
 }
 
