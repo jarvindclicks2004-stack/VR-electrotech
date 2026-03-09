@@ -180,11 +180,7 @@ nav ul a.nav-active::after {
 }
 
 
-.nav-has-dropdown:hover > .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
+ 
 
 
 .nav-dropdown li {
@@ -570,19 +566,7 @@ form {
 }
 
 
-/* Make dropdown forgiving (stays longer) */
-.nav-has-dropdown > .nav-dropdown {
-  opacity: 0;
-  visibility: hidden;
-  display: block; /* override display:none */
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
-
-.nav-has-dropdown:hover > .nav-dropdown {
-  opacity: 1;
-  visibility: visible;
-}
+ 
 
 
 /* ===== Form label visibility fix (ONLY labels) ===== */
@@ -663,18 +647,7 @@ form .btn-primary {
 
 /* ===== FINAL dropdown stability override ===== */
 
-/* Ensure dropdown can receive hover even when parent loses hover briefly */
-.nav-has-dropdown > .nav-dropdown {
-  pointer-events: auto !important;
-}
-
-
-/* Keep dropdown open when either parent OR dropdown is hovered */
-.nav-has-dropdown:hover > .nav-dropdown,
-.nav-has-dropdown > .nav-dropdown:hover {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
+ 
 
 
 /* ===== ABOUT section text contrast fix ===== */
@@ -1126,6 +1099,8 @@ form .btn-primary {
   .nav-has-dropdown:hover > .nav-dropdown {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+
   }
 }
 
@@ -1137,11 +1112,14 @@ form .btn-primary {
     box-shadow: none;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
+
   }
 
   .nav-has-dropdown.open > .nav-dropdown {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 }
 
