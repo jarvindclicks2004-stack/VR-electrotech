@@ -1215,13 +1215,15 @@ main > section:first-child {
     width:100%;
     display:flex;
     flex-wrap:wrap;
-    gap:12px;
+    gap:10px;
     margin:0;
     padding:0;
-  }
+    justify-content:flex-start;
+}
 
   nav ul li{
     margin:0;
+    flex:0 0 auto;
   }
 
   nav ul a{
