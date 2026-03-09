@@ -214,7 +214,7 @@ nav ul a.nav-active::after {
 main {
   max-width: var(--container);
   margin: 0 auto 72px;
-  padding: 8 20px 40px;
+  padding: 8px 20px 40px;
   position: relative;
   z-index: 1;
   overflow: visible;
