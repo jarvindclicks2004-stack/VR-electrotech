@@ -910,7 +910,7 @@ form .btn-primary {
   }
 
   /* Hero Section */
-  .hero {
+  #hero {
     grid-template-columns: 1fr;
     text-align: center;
   }
