@@ -82,7 +82,7 @@ nav {
   padding: 12px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 
@@ -1135,7 +1135,7 @@ form .btn-primary {
     padding: 12px 20px; /* slimmer than 18px */
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   nav > a {
@@ -1145,6 +1145,7 @@ form .btn-primary {
 
   nav ul {
     gap: 24px;
+    margin-left: auto;
   }
 
   main {
