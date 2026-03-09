@@ -1121,4 +1121,27 @@ form .btn-primary {
     width: 100%;
   }
 }
+/* Desktop: keep hover behavior */
+@media (min-width: 769px) {
+  .nav-has-dropdown:hover > .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Mobile: show dropdown when parent has .open (from JS) */
+@media (max-width: 768px) {
+  .nav-has-dropdown > .nav-dropdown {
+    position: static;          /* stack under link */
+    margin-top: 6px;
+    box-shadow: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .nav-has-dropdown.open > .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 
