@@ -1185,3 +1185,7 @@ form .btn-primary {
     padding: 0 14px 32px;
   }
 }
+
+main > section:first-child {
+  margin-top: 0;
+}
