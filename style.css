@@ -1123,3 +1123,64 @@ form .btn-primary {
   }
 }
 
+/* ===== All desktop / laptop (including fullscreen) ===== */
+@media (min-width: 769px) {
+  header {
+    position: sticky;
+  }
+
+  nav {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 12px 20px; /* slimmer than 18px */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav > a {
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+  }
+
+  nav ul {
+    gap: 24px;
+  }
+
+  main {
+    margin: 16px auto 56px;  /* less gap above hero */
+  }
+}
+
+/* ===== Phones & small tablets ===== */
+@media (max-width: 768px) {
+  header {
+    position: static;
+  }
+
+  nav {
+    max-width: 100%;
+    padding: 10px 14px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  nav > a {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+  }
+
+  nav ul {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  main {
+    max-width: 100%;
+    margin: 12px auto 40px;
+    padding: 0 14px 32px;
+  }
+}
