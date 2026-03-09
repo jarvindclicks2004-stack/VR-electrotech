@@ -1188,3 +1188,50 @@ form .btn-primary {
 main > section:first-child {
   margin-top: 0;
 }
+
+
+/* ===== CLEAN MOBILE NAVBAR FIX ===== */
+
+@media (max-width:768px){
+
+  header{
+    position:relative;
+  }
+
+  nav{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:12px 16px;
+    gap:6px;
+  }
+
+  nav > a{
+    font-size:0.85rem;
+    letter-spacing:0.15em;
+  }
+
+  nav ul{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:0;
+    padding:0;
+  }
+
+  nav ul li{
+    margin:0;
+  }
+
+  nav ul a{
+    font-size:0.75rem;
+    letter-spacing:0.12em;
+  }
+
+  main{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+}
