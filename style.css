@@ -1276,3 +1276,38 @@ main > section:first-child {
   }
 
 }
+
+
+/* ===== MOBILE NAVBAR HARD FIX ===== */
+
+@media (max-width:768px){
+
+  nav{
+    flex-direction:column !important;
+    align-items:flex-start !important;
+    gap:4px !important;
+    padding:10px 14px !important;
+  }
+
+  nav ul{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:8px !important;
+    justify-content:flex-start !important;
+    width:100% !important;
+  }
+
+  nav ul li{
+    flex:0 0 auto !important;
+  }
+
+  nav ul a{
+    font-size:0.75rem !important;
+  }
+
+  main{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+}
