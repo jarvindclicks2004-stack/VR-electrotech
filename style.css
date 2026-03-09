@@ -894,3 +894,60 @@ form .btn-primary {
   width: 100%;
   margin-top: 8px;
 }
+
+/* ===== Mobile Responsive Styles ===== */
+
+@media (max-width: 768px) {
+
+  /* Navigation */
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav li {
+    margin-bottom: 10px;
+  }
+
+  /* Hero Section */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-media img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Services grid */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Content blocks */
+  .content-block {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section padding */
+  section {
+    padding: 40px 20px;
+  }
+
+  /* Headings */
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
