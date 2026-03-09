@@ -214,7 +214,7 @@ nav ul a.nav-active::after {
 main {
   max-width: var(--container);
   margin: 0 auto 72px;
-  padding: 8px 20px 40px;
+  padding: 0 20px 40px;
   position: relative;
   z-index: 1;
   overflow: visible;
@@ -1181,39 +1181,10 @@ form .btn-primary {
 
   main {
     max-width: 100%;
-    margin: 12px auto 40px;
+    margin: 0px auto 40px;
     padding: 0 14px 32px;
   }
 }
-
-
-
-/* Kill top gap on phones */
-@media (max-width: 768px) {
-  body {
-    padding-top: 0;
-  }
-
-  header {
-    margin-bottom: 0;
-  }
-
-  main {
-    margin: 0 auto 40px;   /* remove top margin */
-    padding-top: 0;
-  }
-
-  section {
-    margin-top: 0;
-  }
-
-  main > section:first-child,
-  #hero {
-    margin-top: 0;
-  }
-}
-
-
 main > section:first-child {
   margin-top: 0;
 }
