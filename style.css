@@ -1327,3 +1327,21 @@ main > section:first-child {
 }
 
 }
+@media (max-width:768px){
+
+.nav-has-dropdown > .nav-dropdown{
+  position:absolute;
+  top:100%;
+  left:0;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.nav-has-dropdown:active > .nav-dropdown{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+}
