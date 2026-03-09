@@ -171,18 +171,26 @@
     </section>
   </main>
  <script src="script.js"></script>
-  <script>
-const toggle = document.querySelector(".menu-toggle");
-const menu = document.querySelector("nav ul");
-
-toggle.addEventListener("click", () => {
-  menu.classList.toggle("active");
-});
+  
   <footer>
     <p>Phone: 93853 71983 · Email: <a href="mailto:vrelectrotech@gmail.com">vrelectrotech@gmail.com</a></p>
     
     <p>© 2025 VR Electrotech. All rights reserved.</p>
   </footer>
+ 
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector("nav > ul"); // select only main menu
+
+  if(toggle && menu){
+    toggle.addEventListener("click", function(){
+      menu.classList.toggle("active");
+    });
+  }
+
+});
 </script>
 </body>
 </html>
