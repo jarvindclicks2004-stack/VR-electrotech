@@ -1345,3 +1345,41 @@ main > section:first-child {
 }
 
 }
+
+/* hide hamburger on desktop */
+.menu-toggle{
+  display:none;
+}
+
+/* mobile navbar */
+@media (max-width:768px){
+
+  .menu-toggle{
+    display:block;
+    font-size:22px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    margin-left:auto;
+  }
+
+  nav{
+    flex-wrap:wrap;
+  }
+
+  nav ul{
+    width:100%;
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    margin-top:10px;
+  }
+
+  nav ul.active{
+    display:flex;
+  }
+
+}
+
+
+
