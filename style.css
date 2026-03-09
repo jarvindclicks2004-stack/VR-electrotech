@@ -1416,3 +1416,20 @@ main > section:first-child {
   }
 
 }
+
+
+/* ===== MOBILE MENU TOGGLE ===== */
+
+@media (max-width:768px){
+
+nav ul{
+  display:flex !important;
+  flex-direction:column;
+  gap:10px;
+}
+
+nav ul.closed{
+  display:none !important;
+}
+
+}
