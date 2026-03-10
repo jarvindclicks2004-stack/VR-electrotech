@@ -211,18 +211,42 @@ document
     simpleQuoteModal.style.display = "none";
   });
 
-/* ===== Mobile nav dropdown toggle (ADD THIS) ===== */
+/* ===== Mobile,Desktop  nav dropdown toggle correction  ===== */
 document.addEventListener("DOMContentLoaded", () => {
+
   const dropdownParents = document.querySelectorAll(".nav-has-dropdown > a");
 
   dropdownParents.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault(); // first tap opens/closes dropdown instead of navigating
-        const li = link.parentElement;
-        li.classList.toggle("open");
-      }
-    });
-  });
-});
 
+    link.addEventListener("click", (e) => {
+
+      if (window.innerWidth <= 768) {
+
+        e.preventDefault();
+
+        const li = link.parentElement;
+
+        li.classList.toggle("open");
+
+      }
+
+    });
+
+  });
+
+  // close dropdown if user taps outside
+  document.addEventListener("click", (e) => {
+
+    dropdownParents.forEach((link) => {
+
+      const li = link.parentElement;
+
+      if (!li.contains(e.target)) {
+        li.classList.remove("open");
+      }
+
+    });
+
+  });
+
+});
