@@ -1476,3 +1476,50 @@ font-size:0.85rem;
 color:#556643;
 border-top:1px solid rgba(69,84,50,0.12);
 }
+
+
+
+/* ===== Compact Footer ===== */
+
+.site-footer{
+margin-top:40px;
+padding:20px 0;
+border-top:1px solid rgba(69,84,50,0.15);
+}
+
+.footer-inner{
+max-width:1120px;
+margin:auto;
+padding:0 20px;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:20px;
+}
+
+/* brand title */
+.footer-brand h3{
+font-size:0.9rem;
+letter-spacing:0.18em;
+margin-bottom:6px;
+}
+
+/* brand text */
+.footer-brand p{
+font-size:0.8rem;
+margin:3px 0;
+color:#556643;
+}
+
+/* contact section */
+.footer-contact p{
+font-size:0.8rem;
+margin:3px 0;
+}
+
+/* copyright */
+.footer-copy{
+font-size:0.75rem;
+margin-top:6px;
+opacity:0.7;
+}
