@@ -1433,3 +1433,46 @@ nav ul.closed{
 }
 
 }
+
+
+
+
+
+/* ===== Footer layout fix ===== */
+
+.site-footer{
+border-top:1px solid rgba(69,84,50,0.15);
+margin-top:60px;
+}
+
+.footer-inner{
+max-width:1120px;     /* same width as your site container */
+margin:auto;
+padding:40px 20px;
+display:flex;
+flex-wrap:wrap;
+justify-content:space-between;
+gap:30px;
+}
+
+.footer-brand h3{
+letter-spacing:0.18em;
+margin-bottom:10px;
+}
+
+.footer-brand p{
+margin:4px 0;
+color:#556643;
+}
+
+.footer-contact{
+text-align:right;
+}
+
+.footer-bottom{
+text-align:center;
+padding:16px;
+font-size:0.85rem;
+color:#556643;
+border-top:1px solid rgba(69,84,50,0.12);
+}
